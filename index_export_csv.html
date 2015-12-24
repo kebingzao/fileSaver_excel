@@ -1,0 +1,34 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js导出csv</title>
+    <script src="js/FileSaver.js"></script>
+    <script src="js/FileSaver.js"></script>
+    <script>
+    // https://github.com/eligrey/FileSaver.js
+    // https://github.com/eligrey/Blob.js
+    function onDocumentLoad() {
+        document.getElementById("export").addEventListener('click',function(){
+            var contentStr = document.getElementById("content").value;   //内容
+            var BB = self.Blob;
+            saveAs(new BB(
+                    //\ufeff防止utf8 bom防止中文乱码
+                    ["\ufeff" + contentStr],
+                    { type: "text/plain;charset=utf8" }
+                ) , "export.csv");
+        })
+    }
+    document.addEventListener('DOMContentLoaded', onDocumentLoad);
+    </script>
+</head>
+<body>
+<button id="export">导出csv</button><br>
+<textarea rows="6" id="content">
+姓名,学号,成绩
+王三,103020120,98
+张四,103020218,80
+李石磊,20085802024,100
+JohnsonLee,123654,523
+</textarea>
+</body>
+</html>
