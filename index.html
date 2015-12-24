@@ -1,0 +1,36 @@
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>js导出excel</title>
+    <script src="FileSaver.js"></script>
+    <script>
+    // https://github.com/eligrey/FileSaver.js
+    function onDocumentLoad() {
+        document.getElementById("export").addEventListener('click',function(){
+            var blob = new Blob([document.getElementById("exportTable").outerHTML], {
+                type: "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet;charset=utf-8"
+            });
+            saveAs(blob,  "export.xls");
+        })
+    }
+    document.addEventListener('DOMContentLoaded', onDocumentLoad);
+    </script>
+</head>
+<body>
+<button id="export">导出excel</button><br>
+<table id="exportTable">
+    <thead>
+        <th>名字</th>
+        <th>年龄</th>
+    </thead>
+    <tr>
+        <td>kbz</td>
+        <td>25</td>
+    </tr>
+    <tr>
+        <td>gsting</td>
+        <td>24</td>
+    </tr>
+</table>
+</body>
+</html>

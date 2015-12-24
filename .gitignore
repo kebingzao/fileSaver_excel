@@ -1,0 +1,12 @@
+Thumbs.db
+backup/
+node_modules/
+storage/
+*.iml
+.idea
+*.zip
+tmp/
+bower_components/
+backup/
+build/
+index_bak.html
